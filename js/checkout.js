@@ -87,13 +87,6 @@ import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 //   });
 // });
 
-// document.querySelectorAll(".js-delivery-option").forEach((e) => {
-//   e.addEventListener("click", () => {
-//     const { productId, deliveryOptionId } = e.dataset;
-//     updateDeliveryOption(productId, deliveryOptionId);
-//   });
-// });
-
 let cartSummeryHTML = ""; // Initialize with an empty string
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
@@ -191,7 +184,7 @@ function deliveryOptionHTML(matchingProduct, cartItem) {
 
     <div class="delivery-option js-delivery-option" data-product-id = "${
       matchingProduct.id
-    }" data-delivery-id = "${deliveryOption.id}">
+    }" data-delivery-option-id = "${deliveryOption.id}">
                   <input
                     type="radio"
                     ${isChecked ? "Checked" : ""}
@@ -208,3 +201,10 @@ function deliveryOptionHTML(matchingProduct, cartItem) {
   });
   return html;
 }
+
+document.querySelectorAll(".js-delivery-option").forEach((e) => {
+  e.addEventListener("click", () => {
+    const { productId, deliveryOptionId } = e.dataset;
+    updateDeliveryOption(productId, deliveryOptionId);
+  });
+});
