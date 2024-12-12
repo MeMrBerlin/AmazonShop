@@ -4,8 +4,6 @@ import { deliveryOption } from "./deliveryOptions.js";
 // //! default export
 // import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 
-let cartSummeryHTML = ""; // Initialize with an empty string
-
 // cart.forEach((cartItem) => {
 //   const productId = cartItem.productId;
 //   let matchingProduct;
@@ -127,6 +125,7 @@ let cartSummeryHTML = ""; // Initialize with an empty string
 //   });
 // });
 
+let cartSummeryHTML = ""; // Initialize with an empty string
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
   let matchingProduct;
@@ -135,10 +134,10 @@ cart.forEach((cartItem) => {
       matchingProduct = product;
     }
   });
-  // console.log(matchingProduct);
 
   cartSummeryHTML += `
-<div class="cart-item-container js-item-container">
+<div class="cart-item-container 
+  js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">Delivery date: Tuesday, June 21</div>
 
             <div class="cart-item-details-grid">
@@ -162,7 +161,9 @@ cart.forEach((cartItem) => {
                   <span class="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span class="delete-quantity-link link-primary">
+                  <span class="delete-quantity-link link-primary js-delete-link" data-product-id = "${
+                    matchingProduct.id
+                  }">
                     Delete
                   </span>
                 </div>
@@ -213,3 +214,16 @@ cart.forEach((cartItem) => {
 });
 
 document.querySelector(".js-order-summary").innerHTML = cartSummeryHTML;
+document.querySelectorAll(".js-delete-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    const productId = link.dataset.productId;
+    removeFromCart(productId);
+    const container = document.querySelector(
+      `.js-cart-item-container-${productId}` // Fixed selector here
+    );
+    // console.log(container); // Should not be null
+    if (container) {
+      container.remove(); // Only remove if the container exists
+    }
+  });
+});
