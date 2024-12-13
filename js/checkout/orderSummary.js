@@ -2,6 +2,7 @@ import { cart, removeFromCart, updateDeliveryOption } from "../cart.js";
 import { products, getProduct } from "../products.js";
 import { deliveryOptions, getDeliveryOption } from "../deliveryOptions.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 export function renderOrderSummary() {
   let cartSummeryHTML = ""; // Initialize with an empty string
@@ -73,6 +74,7 @@ export function renderOrderSummary() {
       if (container) {
         container.remove(); // Only remove if the container exists
       }
+      renderPaymentSummary();
     });
   });
 
@@ -116,6 +118,7 @@ export function renderOrderSummary() {
       const { productId, deliveryOptionId } = e.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
       renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 }
