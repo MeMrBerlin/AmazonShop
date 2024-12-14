@@ -1,4 +1,4 @@
-import { formatCurrency } from "../js/utils/money.js";
+import { formatCurrency } from "../../js/utils/money.js";
 describe("test suite: formatCurrency", () => {
   it("Convert cents to rupees", () => {
     expect(formatCurrency(2000)).toEqual("1680.00");
