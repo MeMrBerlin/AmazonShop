@@ -3,6 +3,7 @@ import { products, getProduct } from "../products.js";
 import { deliveryOptions, getDeliveryOption } from "../deliveryOptions.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
+import { formatCurrency } from "../utils/money.js";
 
 export function renderOrderSummary() {
   let cartSummeryHTML = ""; // Initialize with an empty string
@@ -32,10 +33,9 @@ export function renderOrderSummary() {
                 <div class="product-name">
                   ${matchingProduct.name}
                 </div>
-                <div class="product-price">&#8377 ${(
-                  (matchingProduct.priceCents / 100) *
-                  84.86
-                ).toFixed(2)}</div>
+                <div class="product-price">&#8377 ${formatCurrency(
+                  matchingProduct.priceCents
+                )}</div>
                 <div class="product-quantity">
                   <span> Quantity: <span class="quantity-label">${
                     cartItem.quantity
@@ -87,9 +87,7 @@ export function renderOrderSummary() {
       const priceString =
         deliveryOption.priceCents === 0
           ? "FREE"
-          : `&#8377 ${((deliveryOption.priceCents / 100) * 84.86).toFixed(
-              2
-            )} -`;
+          : `&#8377 ${formatCurrency(deliveryOption.priceCents)} -`;
       const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
       html += `
 

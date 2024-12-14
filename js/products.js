@@ -17,7 +17,7 @@ export const products = [
       stars: 4.5,
       count: 87,
     },
-    priceCents: 1090,
+    priceCents: 1100,
     keywords: ["socks", "sports", "apparel"],
   },
   {
@@ -28,7 +28,7 @@ export const products = [
       stars: 4,
       count: 127,
     },
-    priceCents: 2095,
+    priceCents: 2100,
     keywords: ["sports", "basketballs"],
   },
   {
@@ -39,7 +39,7 @@ export const products = [
       stars: 4.5,
       count: 56,
     },
-    priceCents: 799,
+    priceCents: 800,
     keywords: ["tshirts", "apparel", "mens"],
     type: "clothing",
     sizeChartLink: "images/clothing-size-chart.png",
@@ -52,7 +52,7 @@ export const products = [
       stars: 5,
       count: 2197,
     },
-    priceCents: 1899,
+    priceCents: 1900,
     keywords: ["toaster", "kitchen", "appliances"],
   },
   {
@@ -63,7 +63,7 @@ export const products = [
       stars: 4,
       count: 37,
     },
-    priceCents: 2067,
+    priceCents: 2100,
     keywords: ["plates", "kitchen", "dining"],
   },
   {
@@ -74,7 +74,7 @@ export const products = [
       stars: 4.5,
       count: 175,
     },
-    priceCents: 3499,
+    priceCents: 3500,
     keywords: ["kitchen", "cookware"],
   },
   {
@@ -96,7 +96,7 @@ export const products = [
       stars: 4.5,
       count: 144,
     },
-    priceCents: 3599,
+    priceCents: 3600,
     keywords: ["bathroom", "washroom", "restroom", "towels", "bath towels"],
   },
   {
@@ -107,7 +107,7 @@ export const products = [
       stars: 4.5,
       count: 305,
     },
-    priceCents: 2899,
+    priceCents: 2900,
     keywords: ["bathroom", "cleaning"],
   },
   {
@@ -118,7 +118,7 @@ export const products = [
       stars: 4,
       count: 89,
     },
-    priceCents: 3390,
+    priceCents: 3400,
     keywords: ["shoes", "running shoes", "footwear"],
   },
   {
@@ -129,7 +129,7 @@ export const products = [
       stars: 4.5,
       count: 235,
     },
-    priceCents: 2070,
+    priceCents: 2100,
     keywords: ["robe", "swimsuit", "swimming", "bathing", "apparel"],
     type: "clothing",
     sizeChartLink: "images/clothing-size-chart.png",
@@ -142,7 +142,7 @@ export const products = [
       stars: 4.5,
       count: 30,
     },
-    priceCents: 1560,
+    priceCents: 1600,
     keywords: ["accessories", "shades"],
   },
   {
@@ -153,7 +153,7 @@ export const products = [
       stars: 4.5,
       count: 562,
     },
-    priceCents: 2499,
+    priceCents: 2500,
     keywords: ["footwear", "sandals", "womens", "beach", "summer"],
   },
   {
