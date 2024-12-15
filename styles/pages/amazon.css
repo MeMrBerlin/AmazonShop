@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: rgb(229, 210, 255);
 }
 
 .main {
@@ -122,7 +122,7 @@ button:hover::before {
   justify-content: space-between;
   padding: 20px;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 18px;
   border: 1px solid #eee;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -131,7 +131,7 @@ button:hover::before {
 
 .product-container:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(177, 51, 245, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -228,6 +228,11 @@ button:hover::before {
 }
 
 /* Search Button */
+
+.search-bar {
+  background-color: rgb(232, 220, 249);
+  border-radius: 12px;
+}
 .search-button {
   background: linear-gradient(135deg, #f7ca00, #e65c00);
   border-radius: 50px;
@@ -276,4 +281,180 @@ button:hover::before {
 .add-to-cart-button:hover {
   background: linear-gradient(135deg, #e65c00, #f7ca00);
   transform: scale(1.05);
+}
+
+/* Footer Style*/
+.footer-class {
+  background-color: black;
+  margin-top: 20px;
+  z-index: 10;
+}
+
+footer.bg-black {
+  background-color: black; /* Black background */
+  color: #fff; /* White text */
+  padding: 2rem;
+  z-index: 10; /* Adds spacing inside the footer */
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+footer h2 {
+  font-size: 1.25rem; /* Larger font for headings */
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+footer ul {
+  list-style: none; /* Removes bullet points */
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 0.5rem; /* Adds space between list items */
+}
+
+footer .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 2rem; /* Space between columns */
+}
+
+footer img {
+  height: 80px;
+}
+
+footer .flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .flex a {
+  color: #fff;
+  margin: 0 0.5rem;
+  font-size: 1.5rem; /* Icon size */
+  transition: color 0.3s ease;
+}
+
+footer .flex a:hover {
+  color: #ff9900; /* Amazon-like orange hover effect */
+}
+
+footer .border-t {
+  border-top: 1px solid #555; /* Light gray border */
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+footer .border-t span {
+  color: #999; /* Subtle gray text */
+  font-size: 0.875rem; /* Slightly smaller font */
+}
+
+.flex {
+  display: flex; /* Using flexbox for layout */
+  flex-direction: column; /* Column layout for the image and icons */
+  align-items: center; /* Center items horizontally */
+}
+
+.icons {
+  display: flex; /* Flexbox for social icons */
+  justify-content: center; /* Center the icons horizontally */
+  gap: 1rem; /* Space between icons */
+  padding-top: 1rem; /* Space between the image and the icons */
+}
+
+.socialContainer {
+  font-size: 1.5rem; /* Size of the icons */
+  text-decoration: none; /* Remove underlines */
+}
+
+.socialContainer:hover {
+  color: #1e90ff; /* Hover effect: blue color */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.socialSvg {
+  width: 24px; /* Icon size */
+  height: 24px; /* Icon size */
+}
+
+/* icon style */
+/* From Uiverse.io by 0800Gonza */
+.card {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 25px;
+  gap: 20px;
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: 0.3s;
+}
+/* twitter*/
+.containerTwo:hover {
+  background-color: rgb(8, 102, 255);
+  transition-duration: 0.3s;
+}
+/* linkedin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: 0.3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: rgb(21, 25, 31);
+  transition-duration: 0.3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: 0.3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
