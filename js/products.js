@@ -57,7 +57,7 @@ const tshirt = new Clothing({
   sizeChartLink: "images/clothing-size-chart.png",
 });
 
-console.log(tshirt);
+// console.log(tshirt);
 
 export const products = [
   {

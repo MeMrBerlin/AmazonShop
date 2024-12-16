@@ -5,10 +5,10 @@ import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
 import { formatCurrency } from "../utils/money.js";
 
+let cartQuantity = 0;
 export function renderOrderSummary() {
   // Function to update the cart quantity display
   function updateCartQuantity() {
-    let cartQuantity = 0;
     cart.forEach((cartItem) => {
       cartQuantity += cartItem.quantity;
     });
@@ -136,4 +136,8 @@ export function renderOrderSummary() {
       renderPaymentSummary();
     });
   });
+}
+
+export function getCartQuantity() {
+  return cartQuantity;
 }

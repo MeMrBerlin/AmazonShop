@@ -10,6 +10,10 @@ body {
   padding: 20px;
 }
 
+.hide {
+  display: none;
+}
+
 /* Products Grid */
 .products-grid {
   display: grid;
