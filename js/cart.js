@@ -24,7 +24,7 @@ function saveToStorage() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-//! add to cart function
+//! function to add to cart function
 export function addToCartFunc(quantity, productId) {
   let matchingItem;
   cart.forEach((cartItem) => {
@@ -46,7 +46,6 @@ export function addToCartFunc(quantity, productId) {
 }
 
 //! function to delete items from cart
-
 export function removeFromCart(productId) {
   const newCart = [];
   cart.forEach((cartItem) => {

@@ -285,16 +285,19 @@ button:hover::before {
 
 /* Footer Style*/
 .footer-class {
-  background-color: black;
   margin-top: 20px;
-  z-index: 10;
 }
 
 footer.bg-black {
-  background-color: black; /* Black background */
+  background-color: rgb(19, 25, 33); /* Black background */
   color: #fff; /* White text */
   padding: 2rem;
-  z-index: 10; /* Adds spacing inside the footer */
+  z-index: 102; /* Adds spacing inside the footer */
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
 }
 
 footer .container {

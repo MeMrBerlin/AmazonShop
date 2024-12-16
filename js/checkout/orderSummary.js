@@ -6,7 +6,19 @@ import { renderPaymentSummary } from "./paymentSummary.js";
 import { formatCurrency } from "../utils/money.js";
 
 export function renderOrderSummary() {
-  let cartSummeryHTML = ""; // Initialize with an empty string
+  // Function to update the cart quantity display
+  function updateCartQuantity() {
+    let cartQuantity = 0;
+    cart.forEach((cartItem) => {
+      cartQuantity += cartItem.quantity;
+    });
+    document.querySelector(
+      ".js-return-to-home-link"
+    ).innerHTML = `${cartQuantity} items`;
+  }
+
+  // Render the cart summary
+  let cartSummeryHTML = "";
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
     const matchingProduct = getProduct(productId);
@@ -63,17 +75,24 @@ export function renderOrderSummary() {
   });
 
   document.querySelector(".js-order-summary").innerHTML = cartSummeryHTML;
+
+  // Update the cart quantity display initially
+  updateCartQuantity();
+
+  // Add event listeners for delete links
   document.querySelectorAll(".js-delete-link").forEach((link) => {
     link.addEventListener("click", () => {
       const productId = link.dataset.productId;
       removeFromCart(productId);
       const container = document.querySelector(
-        `.js-cart-item-container-${productId}` // Fixed selector here
+        `.js-cart-item-container-${productId}`
       );
-      // console.log(container); // Should not be null
       if (container) {
         container.remove(); // Only remove if the container exists
       }
+
+      // Update the cart quantity after deletion
+      updateCartQuantity();
       renderPaymentSummary();
     });
   });
@@ -90,7 +109,6 @@ export function renderOrderSummary() {
           : `&#8377 ${formatCurrency(deliveryOption.priceCents)} -`;
       const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
       html += `
-
     <div class="delivery-option js-delivery-option" data-product-id = "${
       matchingProduct.id
     }" data-delivery-option-id = "${deliveryOption.id}">
@@ -105,7 +123,6 @@ export function renderOrderSummary() {
                     <div class="delivery-option-price">${priceString} - Shipping</div>
                   </div>
                 </div>
-
     `;
     });
     return html;

@@ -57,7 +57,7 @@ products.forEach((product) => {
 `;
 });
 
-console.log(productHtml);
+// console.log(productHtml);
 document.querySelector(".js-products-grid").innerHTML = productHtml;
 
 //! update cart quantity function
