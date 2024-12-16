@@ -5,18 +5,18 @@ import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
 import { formatCurrency } from "../utils/money.js";
 
-let cartQuantity = 0;
-export function renderOrderSummary() {
-  // Function to update the cart quantity display
-  function updateCartQuantity() {
-    cart.forEach((cartItem) => {
-      cartQuantity += cartItem.quantity;
-    });
-    document.querySelector(
-      ".js-return-to-home-link"
-    ).innerHTML = `${cartQuantity} items`;
-  }
+// Function to update the cart quantity display
+function updateCartQuantity() {
+  let cartQuantity = 0; // Reset cartQuantity each time it's updated
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  document.querySelector(
+    ".js-return-to-home-link"
+  ).innerHTML = `${cartQuantity} items`;
+}
 
+export function renderOrderSummary() {
   // Render the cart summary
   let cartSummeryHTML = "";
   cart.forEach((cartItem) => {
@@ -76,7 +76,7 @@ export function renderOrderSummary() {
 
   document.querySelector(".js-order-summary").innerHTML = cartSummeryHTML;
 
-  // Update the cart quantity display initially
+  // Update the cart quantity display when rendering order summary
   updateCartQuantity();
 
   // Add event listeners for delete links
@@ -128,16 +128,15 @@ export function renderOrderSummary() {
     return html;
   }
 
+  // Only update delivery option, without affecting cart quantity
   document.querySelectorAll(".js-delivery-option").forEach((e) => {
     e.addEventListener("click", () => {
       const { productId, deliveryOptionId } = e.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
+
+      // Re-render the order summary and payment summary without updating cart quantity
       renderOrderSummary();
       renderPaymentSummary();
     });
   });
-}
-
-export function getCartQuantity() {
-  return cartQuantity;
 }
