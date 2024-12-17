@@ -69,6 +69,17 @@ function updateCartQuantity() {
 
   document.querySelector(".js-cart-quantity").innerHTML = totalQuantity;
 }
+
+function checkLogin(event) {
+  let isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (!isLoggedIn) {
+    event.preventDefault();
+    alert("You have to login first!");
+  }
+}
+
+//! Add event listeners to all "Add to Cart" buttons
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
   button.addEventListener("click", () => {
     const productId = button.dataset.productId;
@@ -80,6 +91,9 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     updateCartQuantity();
   });
 });
+
+//! Add event listener to the cart icon to check if user is logged in
+document.querySelector(".cart-link").addEventListener("click", checkLogin);
 
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
   button.addEventListener("click", () => {
@@ -93,3 +107,15 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     }
   });
 });
+
+//! Function to update the login icon after successful login
+function updateLoginIcon() {
+  let isLoggedIn = localStorage.getItem("isLoggedIn");
+  if (isLoggedIn === "true") {
+    const loginIcon = document.getElementById("loginIcon");
+    if (loginIcon) {
+      loginIcon.src = "images/icons/panda.png"; //! Change the image to panda.png
+    }
+  }
+}
+document.addEventListener("DOMContentLoaded", updateLoginIcon);

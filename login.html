@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <link rel="stylesheet" href="styles/pages/login.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <!-- Already Logged In Section -->
+      <div id="alreadyLoggedIn" style="display: none">
+        <h1>You are already logged in</h1>
+        <button id="backToShopping">Back to Shopping</button>
+      </div>
+
+      <!-- QR Code Login Section -->
+      <div id="qrLogin">
+        <h1>Login with QR Code</h1>
+        <div id="qrcode"></div>
+        <div id="numberInput" style="display: none">
+          <p>Enter the 4-digit number:</p>
+          <input
+            type="text"
+            id="codeInput"
+            maxlength="4"
+            placeholder="Enter code"
+          />
+          <button id="submitCode">Submit</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/login.js" type="module"></script>
+  </body>
+</html>
