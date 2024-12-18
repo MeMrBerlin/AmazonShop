@@ -1,9 +1,9 @@
 const xhl = new XMLHttpRequest();
 // !Types of requests:
-// GET
-// POST
-// PUT
-// DELETE
+// GET = get something from the backend
+// POST = create something
+// PUT = update something
+// DELETE = delete something
 
 xhl.addEventListener("load", () => {
   console.log(xhl.response);
