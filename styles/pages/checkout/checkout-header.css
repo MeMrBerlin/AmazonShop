@@ -14,7 +14,7 @@
   z-index: 1000;
 }
 
-.header-content {
+.checkout-header .header-content {
   width: 100%;
   max-width: 1100px;
 
@@ -22,40 +22,36 @@
   align-items: center;
 }
 
-.checkout-header-left-section {
+.checkout-header .left-section {
   width: 150px;
 }
 
-.amazon-logo {
+.checkout-header .amazon-logo {
   width: 100px;
   margin-top: 12px;
 }
 
-.amazon-mobile-logo {
+.checkout-header .amazon-mobile-logo {
   display: none;
 }
 
-/* @media is used to create responsive design (making the
-     website look good on any screen size). This @media
-     means when the screen width is 575px or less, different
-     styles (inside the {...}) will be applied. */
 @media (max-width: 575px) {
-  .checkout-header-left-section {
+  .checkout-header .left-section {
     width: auto;
   }
 
-  .amazon-logo {
+  .checkout-header .amazon-logo {
     display: none;
   }
 
-  .amazon-mobile-logo {
+  .checkout-header .amazon-mobile-logo {
     display: inline-block;
     height: 35px;
     margin-top: 5px;
   }
 }
 
-.checkout-header-middle-section {
+.checkout-header .middle-section {
   flex: 1;
   flex-shrink: 0;
   text-align: center;
@@ -63,41 +59,73 @@
   font-size: 25px;
   font-weight: 500;
 
+  position: relative;
   display: flex;
   justify-content: center;
 }
 
-.return-to-home-link {
+.checkout-header .return-to-home-link {
   color: rgb(0, 113, 133);
   font-size: 23px;
   text-decoration: none;
   cursor: pointer;
 }
 
+.checkout-header .navigation-popover {
+  font-size: 16px;
+  font-weight: 400;
+
+  background-color: #fff;
+  padding: 20px 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.13);
+  border-radius: 4px;
+
+  position: absolute;
+  top: 45px;
+
+  display: none;
+}
+
+.checkout-header .navigation-popover .popover-message {
+  margin-bottom: 15px;
+}
+
+.checkout-header .navigation-popover button {
+  font-size: 15px;
+  padding: 8px 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.checkout-header .navigation-popover.is-visible {
+  display: block;
+}
+
 @media (max-width: 1000px) {
-  .checkout-header-middle-section {
+  .checkout-header .middle-section {
     font-size: 20px;
     margin-right: 60px;
   }
 
-  .return-to-home-link {
+  .checkout-header .return-to-home-link {
     font-size: 18px;
   }
 }
 
 @media (max-width: 575px) {
-  .checkout-header-middle-section {
+  .checkout-header .middle-section {
     margin-right: 5px;
   }
 }
 
-.checkout-header-right-section {
+.checkout-header .right-section {
   text-align: right;
   width: 150px;
 }
 
 @media (max-width: 1000px) {
-  .checkout-header-right-section {
+  .checkout-header .right-section {
     width: auto;
   }
 }

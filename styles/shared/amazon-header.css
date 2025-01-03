@@ -16,17 +16,17 @@
   z-index: 100;
 }
 
-.amazon-header-left-section {
+.amazon-header .left-section {
   width: 180px;
 }
 
 @media (max-width: 800px) {
-  .amazon-header-left-section {
+  .amazon-header .left-section {
     width: unset;
   }
 }
 
-.header-link {
+.amazon-header .header-link {
   display: inline-block;
   padding: 6px;
   border-radius: 2px;
@@ -35,32 +35,60 @@
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
-.header-link:hover {
+.amazon-header .header-link:hover {
   border: 1px solid white;
 }
 
-.amazon-logo {
+.amazon-header .amazon-logo {
   width: 100px;
   margin-top: 5px;
 }
 
-.amazon-mobile-logo {
+.amazon-header .amazon-mobile-logo {
   display: none;
 }
 
 @media (max-width: 575px) {
-  .amazon-logo {
+  .amazon-header .amazon-logo {
     display: none;
   }
 
-  .amazon-mobile-logo {
+  .amazon-header .amazon-mobile-logo {
     display: block;
     height: 35px;
     margin-top: 5px;
   }
 }
 
-.amazon-header-middle-section {
+.login-link {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.login-icon {
+  width: 35px;
+}
+
+/* New styles for column layout */
+.amazon-header .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 575px) {
+  .amazon-header .logo-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .amazon-header .amazon-mobile-logo,
+  .amazon-header .login-link {
+    margin-bottom: 5px; /* Add spacing between the items */
+  }
+}
+
+.amazon-header .middle-section {
   flex: 1;
   max-width: 850px;
   margin-left: 10px;
@@ -68,7 +96,7 @@
   display: flex;
 }
 
-.search-bar {
+.amazon-header .search-bar {
   flex: 1;
   width: 0;
   font-size: 16px;
@@ -81,7 +109,7 @@
   border-bottom-right-radius: 0;
 }
 
-.search-button {
+.amazon-header .search-button {
   background-color: rgb(254, 189, 105);
   border: none;
   width: 45px;
@@ -89,73 +117,124 @@
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   flex-shrink: 0;
-  margin-left: 5px;
 }
 
-.search-icon {
+.amazon-header .search-icon {
   height: 22px;
   margin-left: 2px;
-  margin-top: 2px;
-  padding-bottom: 2px;
+  margin-top: 3px;
 }
 
-.amazon-header-right-section {
+.amazon-header .right-section {
   width: 180px;
   flex-shrink: 0;
   display: flex;
   justify-content: end;
 }
 
-.orders-link {
+.amazon-header .right-section-mobile {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .amazon-header .right-section {
+    display: none;
+  }
+
+  .amazon-header .right-section-mobile {
+    display: block;
+  }
+}
+
+.amazon-header .hamburger-menu-toggle {
+  display: block;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.amazon-header .hamburger-menu-dropdown {
+  background-color: rgb(19, 25, 33);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60px;
+
+  z-index: 100;
+  text-align: center;
+
+  display: none;
+  overflow: hidden;
+
+  /* We will use JavaScript to change this height. */
+  height: 0px;
+  transition: height 0.25s;
+}
+
+@media (max-width: 575px) {
+  .amazon-header .hamburger-menu-dropdown {
+    display: block;
+  }
+
+  .amazon-header .hamburger-menu-opened {
+    height: 88px;
+  }
+
+  .amazon-header .hamburger-menu-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    font-weight: 500;
+  }
+
+  .amazon-header .hamburger-menu-link:hover {
+    background-color: rgb(38, 50, 63);
+  }
+}
+
+.amazon-header .orders-link {
   color: white;
 }
 
-.returns-text {
+.amazon-header .returns-text {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
 }
 
-.orders-text {
+.amazon-header .orders-text {
   display: block;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
 }
 
-.cart-link {
+.amazon-header .cart-link {
   color: white;
   display: flex;
   align-items: center;
   position: relative;
 }
 
-.cart-icon {
+.amazon-header .cart-icon {
   width: 50px;
 }
 
-.cart-text {
+.amazon-header .cart-text {
   margin-top: 12px;
   font-size: 15px;
   font-weight: 700;
 }
 
-.cart-quantity {
+.amazon-header .cart-quantity {
   color: rgb(240, 136, 4);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
-
   position: absolute;
-  top: 7px;
+  top: 4px;
   left: 22px;
-
   width: 26px;
   text-align: center;
 }
 
-.login-link {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-}
-.login-icon {
-  width: 40px;
+.amazon-header .cart-quantity-mobile {
+  color: rgb(240, 136, 4);
 }
